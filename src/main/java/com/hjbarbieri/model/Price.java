@@ -21,6 +21,10 @@ public class Price {
         return price;
     }
 
+    public Double getWeightPrice(Double weight) {
+        return price * weight;
+    }
+
     public void setPrice(Double price) {
         this.price = price;
     }

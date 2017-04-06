@@ -18,6 +18,10 @@ public class Cart {
     }
 
     public Receipt checkout() {
-        return null;
+        Receipt receipt = new Receipt();
+        Double total = products.stream().mapToDouble(p -> p.getPrice().getPrice()).sum();
+
+        receipt.setTotal(total);
+        return receipt;
     }
 }

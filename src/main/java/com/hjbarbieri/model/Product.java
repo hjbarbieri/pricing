@@ -54,4 +54,12 @@ public class Product {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    public Double getRealPrice() {
+        if(weight == null) {
+            return price.getPrice();
+        }
+
+        return (double) Math.round(price.getWeightPrice(weight) * 100) / 100;
+    }
 }

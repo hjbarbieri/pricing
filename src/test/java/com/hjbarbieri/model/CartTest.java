@@ -24,7 +24,7 @@ public class CartTest {
         // then
         Receipt receipt = cart.checkout();
 
-        Assert.assertEquals(receipt.getTotal(), is(3.3));
+        Assert.assertTrue(receipt.getTotal().equals(3.19));
     }
 
     private List<Product> initializeProducts() {
