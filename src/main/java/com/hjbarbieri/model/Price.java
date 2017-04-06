@@ -8,6 +8,15 @@ public class Price {
     private Double price;
     private boolean isWeight;
 
+    public Price(Double price) {
+        this.price = price;
+    }
+
+    public Price(Double price, boolean isWeight) {
+        this.price = price;
+        this.isWeight = isWeight;
+    }
+
     public Double getPrice() {
         return price;
     }
