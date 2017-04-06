@@ -7,7 +7,23 @@ public class Discount {
 
     private String productType;
     private Integer quantity;
-    private Integer percentage;
+    private Integer discount;
+    private double multiplePrice;
+    private String description;
+
+    public Discount(String productType, Integer quantity, Integer discount, String description) {
+        this.productType = productType;
+        this.quantity = quantity;
+        this.discount = discount;
+        this.description = description;
+    }
+
+    public Discount(String productType, Integer quantity, double multiplePrice, String description) {
+        this.productType = productType;
+        this.quantity = quantity;
+        this.multiplePrice = multiplePrice;
+        this.description = description;
+    }
 
     public String getProductType() {
         return productType;
@@ -25,11 +41,27 @@ public class Discount {
         this.quantity = quantity;
     }
 
-    public Integer getPercentage() {
-        return percentage;
+    public Integer getDiscount() {
+        return discount;
     }
 
-    public void setPercentage(Integer percentage) {
-        this.percentage = percentage;
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getMultiplePrice() {
+        return multiplePrice;
+    }
+
+    public void setMultiplePrice(double multiplePrice) {
+        this.multiplePrice = multiplePrice;
     }
 }
