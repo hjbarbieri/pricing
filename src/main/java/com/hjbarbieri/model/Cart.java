@@ -16,4 +16,8 @@ public class Cart {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+    public Receipt checkout() {
+        return null;
+    }
 }
