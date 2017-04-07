@@ -6,9 +6,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
-import static org.junit.Assert.*;
-
 /**
  * Created by javierbarbieri on 06/04/2017.
  */
@@ -27,75 +24,6 @@ public class CartTest {
         double total = cart.getTotal();
 
         Assert.assertTrue(total == 3.3);
-    }
-
-    @Test
-    public void shouldSumAParticularSavings() {
-        //given
-        List<Product> products = initializeProducts();
-        List<Discount> discounts = initializeDiscounts();
-
-        Cart cart = new Cart();
-        cart.setProducts(products);
-        cart.setDiscounts(discounts);
-
-        // then
-        double total = cart.getSavePrice(discounts.get(0));
-
-        Assert.assertTrue(total == 0.5);
-    }
-
-    @Test
-    public void shouldSumAllSavingsAndAllDiscounts() {
-        //given
-        List<Product> products = initializeProducts();
-        List<Discount> discounts = initializeDiscounts();
-
-        Cart cart = new Cart();
-        cart.setProducts(products);
-        cart.setDiscounts(discounts);
-
-        // then
-        double total = cart.getSavePrice(discounts.get(0));
-
-        Assert.assertTrue(total == 0.5);
-    }
-
-    @Test
-    public void shouldFindQuantitiesOfDiscountProductWhenSizeIsEqualToDiscount() {
-        //given
-
-        Cart cart = new Cart();
-
-        // then
-        double total = cart.quantitySavings(3,6);
-
-        Assert.assertTrue(total == 2);
-
-    }
-
-    @Test
-    public void shouldFindQuantitiesOfDiscountProductWhenSizeIsDifferentThanDiscount() {
-        //given
-
-        Cart cart = new Cart();
-
-        // then
-        double total = cart.quantitySavings(3,5);
-
-        Assert.assertTrue(total == 1);
-
-    }
-
-    private List<Discount> initializeDiscounts() {
-        List<Discount> discounts = new ArrayList<>();
-        Discount discountA = new Discount("A", Integer.valueOf(3), Integer.valueOf(1), "Beans 3 for 2 ");
-        discounts.add(discountA);
-
-        Discount discountB = new Discount("B", 2, 1d, "Coke 2 for £1") ;
-        discounts.add(discountB);
-
-        return discounts;
     }
 
 

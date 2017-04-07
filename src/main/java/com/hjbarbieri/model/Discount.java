@@ -1,27 +1,20 @@
 package com.hjbarbieri.model;
 
+import java.util.List;
+
 /**
  * Created by javierbarbieri on 06/04/2017.
  */
-public class Discount {
+public abstract class Discount {
 
     private String productType;
     private Integer quantity;
-    private Integer discount;
-    private double multiplePrice;
+
     private String description;
 
-    public Discount(String productType, Integer quantity, Integer discount, String description) {
+    public Discount(String productType, Integer quantity, String description) {
         this.productType = productType;
         this.quantity = quantity;
-        this.discount = discount;
-        this.description = description;
-    }
-
-    public Discount(String productType, Integer quantity, double multiplePrice, String description) {
-        this.productType = productType;
-        this.quantity = quantity;
-        this.multiplePrice = multiplePrice;
         this.description = description;
     }
 
@@ -41,14 +34,6 @@ public class Discount {
         this.quantity = quantity;
     }
 
-    public Integer getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Integer discount) {
-        this.discount = discount;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -57,11 +42,5 @@ public class Discount {
         this.description = description;
     }
 
-    public double getMultiplePrice() {
-        return multiplePrice;
-    }
-
-    public void setMultiplePrice(double multiplePrice) {
-        this.multiplePrice = multiplePrice;
-    }
+    abstract Saving applyDiscount(List<Product> products);
 }

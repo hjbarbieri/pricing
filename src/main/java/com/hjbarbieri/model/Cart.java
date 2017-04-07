@@ -50,24 +50,8 @@ public class Cart {
 
         List<Saving> savings = new ArrayList<>();
         for (Discount discount: discounts) {
-            Saving saving = new Saving();
-            double save = getSavePrice(discount);
-            saving.setDescription(discount.getDescription());
-            saving.setSaving(save);
-            savings.add(saving);
+            savings.add(discount.applyDiscount(products));
         }
         return savings;
-    }
-
-    double getSavePrice(Discount discount) {
-        Stream<Product> productStream = products.stream().filter(p -> p.getType().equals(discount.getProductType()));
-        int count = (int) products.stream().filter(p -> p.getType().equals(discount.getProductType())).count();
-        double price = productStream.findFirst().get().getRealPrice();
-        int qSaving = quantitySavings(discount.getQuantity(), count);
-        return qSaving * price;
-    }
-
-    int quantitySavings(int discount, int count) {
-        return count / discount;
     }
 }
